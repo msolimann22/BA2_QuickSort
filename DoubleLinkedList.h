@@ -15,10 +15,11 @@ private:
 public:
 	DoubleLinkedList();
 	void addLast(int data);
-	void QuickSort(Node* L, Node* H);
+	void QuickSortHelper(Node* L, Node* H);
 	Node* partition(Node* L, Node* H);
 	void printList();
 	void swap(int*, int*);
-	Node* lastNode(Node*);
+	void QuickSort(Node*);
+	Node* LastNode(Node*);
 };
 

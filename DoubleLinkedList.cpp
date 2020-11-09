@@ -73,3 +73,19 @@ void DoubleLinkedList::printList()
         temp = temp->next;
     }
 }
+void DoubleLinkedList::QuickSort(Node* head)
+{
+    Node* h = lastNode(head);
+    QuickSortHelper(head, h);
+
+}
+Node*DoubleLinkedList::LastNode(Node* root)
+{
+    while (root && root -> next)
+    {
+        root = root->next;
+        return root;
+    }
+
+
+}
