@@ -18,6 +18,7 @@ public:
 	void QuickSort(Node* L, Node* H);
 	Node* partition(Node* L, Node* H);
 	void printList();
-
+	void swap(int*, int*);
+	Node* lastNode(Node*);
 };
 

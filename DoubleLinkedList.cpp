@@ -22,17 +22,22 @@ void DoubleLinkedList::addLast(int data)
     }
     size++;
 }
-void DoubleLinkedList::QuickSort(Node *l, Node *h)
+void DoubleLinkedList::QuickSortHelper(Node *l, Node *h)
 {
     //Node* A as in Arr[]
     if (h != NULL && l != h && l != h->next)
     {
         Node*  p = partition( l, h);
-        QuickSort( l, p->prev);
-        QuickSort( p->next, h);
+        QuickSortHelper( l, p->prev);
+        QuickSortHelper( p->next, h);
     }
 }
     
+void swap(int* a, int* b) {
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
 
 Node* DoubleLinkedList::partition(Node* l,Node* h)
 {
@@ -42,12 +47,19 @@ Node* DoubleLinkedList::partition(Node* l,Node* h)
         {
             if (j->data <= x)
             {
-                
-                swap(&arr[i], &arr[j]);
+                if (i == NULL)
+                    i = l;
+                else
+                    i = i->next;
+                swap(&(i->data), &(j->data));
             }
         }
-        swap(&arr[i + 1], &arr[h]);
-        return (i + 1);
+        if (i == NULL)
+            i = l;
+        else
+            i = i->next;
+        swap(&(i->data), &(h->data));
+        return i;
 }
 
 void DoubleLinkedList::printList()
