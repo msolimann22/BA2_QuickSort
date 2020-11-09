@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 using namespace std;
 struct Node
@@ -19,7 +18,8 @@ public:
 	Node* partition(Node* L, Node* H);
 	void printList();
 	void swap(int*, int*);
-	void QuickSort(Node*);
+	void QuickSort();
 	Node* LastNode(Node*);
 };
+
 

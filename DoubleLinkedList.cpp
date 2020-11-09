@@ -9,6 +9,7 @@ void DoubleLinkedList::addLast(int data)
     Node* newNode = new Node;
     newNode->data = data;
     newNode->next = NULL;
+    newNode->prev = NULL;
     if (head == NULL)
         head = newNode;
     else
@@ -24,7 +25,6 @@ void DoubleLinkedList::addLast(int data)
 }
 void DoubleLinkedList::QuickSortHelper(Node *l, Node *h)
 {
-    //Node* A as in Arr[]
     if (h != NULL && l != h && l != h->next)
     {
         Node*  p = partition( l, h);
@@ -33,7 +33,7 @@ void DoubleLinkedList::QuickSortHelper(Node *l, Node *h)
     }
 }
     
-void swap(int* a, int* b) {
+void DoubleLinkedList::swap(int* a, int* b) {
     int t = *a;
     *a = *b;
     *b = t;
@@ -73,9 +73,9 @@ void DoubleLinkedList::printList()
         temp = temp->next;
     }
 }
-void DoubleLinkedList::QuickSort(Node* head)
+void DoubleLinkedList::QuickSort()
 {
-    Node* h = lastNode(head);
+    Node* h = LastNode(head);
     QuickSortHelper(head, h);
 
 }
@@ -84,8 +84,8 @@ Node*DoubleLinkedList::LastNode(Node* root)
     while (root && root -> next)
     {
         root = root->next;
-        return root;
-    }
 
+    }
+    return root;
 
 }
