@@ -16,6 +16,7 @@ public:
 	DoubleLinkedList();
 	void addLast(int data);
 	void QuickSort(Node* A, int l, int h);
+	int partition(int arr[], int l, int h);
 	void printList();
 
 };
